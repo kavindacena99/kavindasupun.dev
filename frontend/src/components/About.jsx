@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedSection from "./AnimatedSection";
+import dp from '../assets/dp.jpg';
 
 function About(){
     return(
@@ -9,12 +10,11 @@ function About(){
             <div className="max-w-4xl flex flex-col md:flex-row items-center gap-10">
                 {/* Profile Image */}
                 <img
-                src="https://placehold.co/200x200"
+                src={ dp }
                 alt="Kavinda Supun"
-                className="w-48 h-48 rounded-full border-4 border-blue-400 shadow-lg"
+                className="w-48 h-60 rounded-full border-4 border-blue-400 shadow-lg"
                 />
 
-                {/* Bio */}
                 <div>
                     <p className="text-lg leading-relaxed mb-4">
                         I’m <span className="text-blue-400">Kavinda Supun</span>, a

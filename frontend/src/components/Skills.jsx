@@ -5,12 +5,18 @@ function Skills(){
     const skills = [
         { name: "Laravel", icon: "https://cdn.worldvectorlogo.com/logos/laravel-2.svg" },
         { name: "React", icon: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
+        { name: "ExpressJS", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" },
         { name: "Node.js", icon: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" },
         { name: "MongoDB", icon: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" },
         { name: "Tailwind CSS", icon: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" },
         { name: "Python", icon: "https://cdn.worldvectorlogo.com/logos/python-5.svg" },
         { name: "Go", icon: "https://cdn.worldvectorlogo.com/logos/gopher.svg" },
         { name: "Git", icon: "https://cdn.worldvectorlogo.com/logos/git-icon.svg" },
+        { name: "Bootstrap", icon: "https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" },
+        { name: "Postman", icon: "https://cdn.worldvectorlogo.com/logos/postman.svg" },
+        { name: "MySQL", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" },
+        { name: "NumPy", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" },
+        { name: "Pandas", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" },
     ];
 
   return (
