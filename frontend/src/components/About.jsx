@@ -24,9 +24,7 @@ function About(){
                         deliver real-world solutions.
                     </p>
                     <p className="text-lg leading-relaxed">
-                        Currently, I’m a final-year Applied Mathematics and Computing undergraduate,
-                        and I’ve worked on projects ranging from bakery delivery systems to AI-powered
-                        solutions. I’m always eager to learn new technologies and create innovative products.
+                        I recently completed my BSc in Applied Mathematics and Computing and have developed projects ranging from bakery delivery systems to AI-powered solutions. I’m driven by curiosity, constantly exploring new technologies, and dedicated to creating innovative, impactful products.
                     </p>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import AnimatedSection from "./AnimatedSection";
+import slpp from '../assets/lndprpr.png';
 
 function Projects(){
     const projects = [
@@ -25,9 +26,9 @@ function Projects(){
       title: "Land Price Prediction",
       description:
         "A machine learning model to predict Sri Lankan land prices based on location and size.",
-      image: "https://placehold.co/200x200",
+      image: slpp,
       tech: ["Python", "Scikit-learn", "Pandas"],
-      github: "https://github.com/yourusername/land-price-prediction",
+      github: "https://github.com/kavindacena99/Sri-Lankan-Land-Price-Predictor",
       demo: "#",
     },
   ];
