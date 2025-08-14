@@ -16,20 +16,20 @@ function Contact(){
                 href="mailto:kavindasupun@example.com"
                 className="text-blue-400 text-lg font-semibold mb-8 hover:underline"
             >
-                kavindasupun@example.com
+                kavindach4@gmail.com
             </a>
 
             {/* Social Links */}
             <div className="flex gap-6">
                 <a
-                href="https://github.com/yourusername"
+                href="https://github.com/kavindacena99"
                 target="_blank"
                 className="hover:text-blue-400"
                 >
                 GitHub
                 </a>
                 <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/kavindasupundissanayake99/"
                 target="_blank"
                 className="hover:text-blue-400"
                 >
