@@ -12,8 +12,7 @@ function Projects(){
         "A multi-role system for bakeries, drivers, and customers to manage orders, deliveries, and reviews.",
       image: doughgo,
       tech: ["React", "React Native", "Node.js", "MongoDB", "JWT"],
-      github: "https://github.com/yourusername/doughgo", 
-      demo: "https://yourdoughgodemo.com", 
+      github: "https://github.com/kavindacena99/DoughGo"
     },
     {
       title: "The Shoe Box",
@@ -21,7 +20,7 @@ function Projects(){
         "An e-commerce platform for buying and selling shoes with user reviews and ratings.",
       image: shoe,
       tech: ["Laravel", "MySQL", "JWT", "Bootstrap"],
-      github: "https://github.com/yourusername/tenantrix"
+      github: "https://github.com/kavindacena99/The-Shoe-Box"
     },
     {
       title: "Land Price Prediction",
