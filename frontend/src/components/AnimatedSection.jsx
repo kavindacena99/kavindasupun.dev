@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-export default function AnimatedSection({ children, id, className="" }) {
+function AnimatedSection({ children, id, className="" }) {
   return (
     <motion.section
       id={id}
@@ -15,3 +15,5 @@ export default function AnimatedSection({ children, id, className="" }) {
     </motion.section>
   );
 }
+
+export default AnimatedSection;

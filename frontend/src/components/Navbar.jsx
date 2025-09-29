@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Navbar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -16,7 +16,6 @@ export default function Navbar() {
       <div className="container mx-auto flex justify-between items-center p-4">
         <h1 className="text-2xl font-bold text-white">Kavinda Supun</h1>
 
-        {/* Hamburger button for mobile */}
         <button
           className="md:hidden text-gray-300"
           onClick={() => setIsOpen(!isOpen)}
@@ -24,7 +23,6 @@ export default function Navbar() {
           ☰
         </button>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-gray-300">
           {navLinks.map((nav, index) => (
             <li key={index}>
@@ -36,7 +34,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <ul className="md:hidden bg-gray-800 text-gray-300 p-4 space-y-4">
           {navLinks.map((nav, index) => (
@@ -56,4 +53,4 @@ export default function Navbar() {
   );
 }
 
-
+export default Navbar;

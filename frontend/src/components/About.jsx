@@ -8,7 +8,6 @@ function About(){
             <h2 className="text-4xl font-bold mb-8 text-blue-400">About Me</h2>
 
             <div className="max-w-4xl flex flex-col md:flex-row items-center gap-10">
-                {/* Profile Image */}
                 <img
                 src={ dp }
                 alt="Kavinda Supun"
@@ -17,14 +16,14 @@ function About(){
 
                 <div>
                     <p className="text-lg leading-relaxed mb-4">
-                        I’m <span className="text-blue-400">Kavinda Supun</span>, a
+                        I’m <span className="text-blue-300">Kavinda Supun</span>, a
                         passionate Full-Stack Developer skilled in
-                        <span className="font-semibold"> Laravel, MERN, React Native, and Data Science</span>.
+                        <span className="font-semibold"> Laravel, MERN, React Native and Data Science</span>.
                         I enjoy building powerful and user-friendly applications that
                         deliver real-world solutions.
                     </p>
                     <p className="text-lg leading-relaxed">
-                        I recently completed my BSc in Applied Mathematics and Computing and have developed projects ranging from bakery delivery systems to AI-powered solutions. I’m driven by curiosity, constantly exploring new technologies, and dedicated to creating innovative, impactful products.
+                        I recently completed my BSc in Applied Mathematics and Computing at Vavuniya Campus of the Unversity of Jaffna and have developed projects ranging from bakery delivery systems to AI-powered solutions. I’m driven by curiosity, constantly exploring new technologies, and dedicated to creating innovative, impactful products.
                     </p>
                 </div>
             </div>

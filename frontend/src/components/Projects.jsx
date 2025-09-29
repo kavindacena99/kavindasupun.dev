@@ -1,6 +1,8 @@
 import React from "react";
 import AnimatedSection from "./AnimatedSection";
-import slpp from '../assets/lndprpr.png';
+import doughgo from '../assets/doughgo.png';
+import slpp from '../assets/sllp.png';
+import shoe from '../assets/shoe.png';
 
 function Projects(){
     const projects = [
@@ -8,19 +10,18 @@ function Projects(){
       title: "DoughGo – Bakery Delivery System",
       description:
         "A multi-role system for bakeries, drivers, and customers to manage orders, deliveries, and reviews.",
-      image: "https://placehold.co/200x200",
-      tech: ["React", "Node.js", "MongoDB", "JWT"],
+      image: doughgo,
+      tech: ["React", "React Native", "Node.js", "MongoDB", "JWT"],
       github: "https://github.com/yourusername/doughgo", 
       demo: "https://yourdoughgodemo.com", 
     },
     {
-      title: "Tenantrix – Multi-Tenant SaaS",
+      title: "The Shoe Box",
       description:
-        "Laravel-based SaaS application with JWT authentication and Blade frontend for managing multiple tenants.",
-      image: "https://placehold.co/200x200",
+        "An e-commerce platform for buying and selling shoes with user reviews and ratings.",
+      image: shoe,
       tech: ["Laravel", "MySQL", "JWT", "Bootstrap"],
-      github: "https://github.com/yourusername/tenantrix",
-      demo: "https://yourtenantrixdemo.com",
+      github: "https://github.com/yourusername/tenantrix"
     },
     {
       title: "Land Price Prediction",
@@ -28,8 +29,7 @@ function Projects(){
         "A machine learning model to predict Sri Lankan land prices based on location and size.",
       image: slpp,
       tech: ["Python", "Scikit-learn", "Pandas"],
-      github: "https://github.com/kavindacena99/Sri-Lankan-Land-Price-Predictor",
-      demo: "#",
+      github: "https://github.com/kavindacena99/Sri-Lankan-Land-Price-Predictor"
     },
   ];
 
@@ -61,13 +61,6 @@ function Projects(){
                   className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white"
                 >
                   GitHub
-                </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  className="px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white"
-                >
-                  Live Demo
                 </a>
               </div>
             </div>

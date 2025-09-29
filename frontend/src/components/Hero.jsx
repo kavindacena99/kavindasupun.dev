@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import heroBg from "../assets/bcg.jpg";
 
-export default function Hero() {
+function Hero() {
   return (
     <section
       id="hero"
@@ -14,10 +14,8 @@ export default function Hero() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-3xl">
         <motion.h1
           className="text-5xl md:text-6xl font-bold mb-4"
@@ -50,3 +48,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default Hero;
