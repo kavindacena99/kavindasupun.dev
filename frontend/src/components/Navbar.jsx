@@ -1,56 +1,86 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from "./Icons";
 
-function Navbar() {
+export default function Navbar({ brand, navItems, activeSection, isDark, onToggleTheme }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
-    { name: "Home", link: "#home" },
-    { name: "About", link: "#about" },
-    { name: "Skills", link: "#skills" },
-    { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#contact" },
-  ];
-
   return (
-    <nav className="bg-gray-900 fixed w-full top-0 z-50 border-b border-gray-800">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold text-white">Kavinda Supun</h1>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+      <nav className="mx-auto max-w-6xl rounded-full border border-[var(--color-border)] bg-[var(--color-nav)] px-4 py-3 shadow-lg shadow-black/5 backdrop-blur">
+        <div className="flex items-center justify-between gap-4">
+          <a
+            href="#home"
+            className="font-display text-lg font-semibold tracking-tight text-[var(--color-text)] sm:text-xl"
+          >
+            {brand}
+          </a>
 
-        <button
-          className="md:hidden text-gray-300"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          ☰
-        </button>
+          <div className="hidden items-center gap-2 lg:flex">
+            {navItems.map((item) => {
+              const isActive = item.sectionId === activeSection;
 
-        <ul className="hidden md:flex space-x-6 text-gray-300">
-          {navLinks.map((nav, index) => (
-            <li key={index}>
-              <a href={nav.link} className="hover:text-teal-400">
-                {nav.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+              return (
+                <a
+                  key={item.sectionId}
+                  href={item.href}
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                    isActive
+                      ? "bg-[var(--color-accent-soft)] text-[var(--color-accent)]"
+                      : "text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </div>
 
-      {isOpen && (
-        <ul className="md:hidden bg-gray-800 text-gray-300 p-4 space-y-4">
-          {navLinks.map((nav, index) => (
-            <li key={index}>
-              <a
-                href={nav.link}
-                className="block hover:text-teal-400"
-                onClick={() => setIsOpen(false)}
-              >
-                {nav.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </nav>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+              aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+            >
+              {isDark ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+            </button>
+
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] text-[var(--color-text)] lg:hidden"
+              onClick={() => setIsOpen((currentValue) => !currentValue)}
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              {isOpen ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
+
+        {isOpen ? (
+          <div className="mt-4 rounded-[1.75rem] border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 lg:hidden">
+            <div className="grid gap-2">
+              {navItems.map((item) => {
+                const isActive = item.sectionId === activeSection;
+
+                return (
+                  <a
+                    key={item.sectionId}
+                    href={item.href}
+                    className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                      isActive
+                        ? "bg-[var(--color-accent-soft)] text-[var(--color-accent)]"
+                        : "text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
+      </nav>
+    </header>
   );
 }
-
-export default Navbar;

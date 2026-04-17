@@ -1,72 +1,105 @@
-import React from "react";
 import AnimatedSection from "./AnimatedSection";
-import doughgo from '../assets/doughgo.png';
-import slpp from '../assets/sllp.png';
-import shoe from '../assets/shoe.png';
+import SectionHeading from "./SectionHeading";
+import { ArrowUpRightIcon } from "./Icons";
 
-function Projects(){
-    const projects = [
-    {
-      title: "DoughGo – Bakery Delivery System",
-      description:
-        "A multi-role system for bakeries, drivers, and customers to manage orders, deliveries, and reviews.",
-      image: doughgo,
-      tech: ["React", "React Native", "Node.js", "MongoDB", "JWT"],
-      github: "https://github.com/kavindacena99/DoughGo"
-    },
-    {
-      title: "The Shoe Box",
-      description:
-        "An e-commerce platform for buying and selling shoes with user reviews and ratings.",
-      image: shoe,
-      tech: ["Laravel", "MySQL", "JWT", "Bootstrap"],
-      github: "https://github.com/kavindacena99/The-Shoe-Box"
-    },
-    {
-      title: "Land Price Prediction",
-      description:
-        "A machine learning model to predict Sri Lankan land prices based on location and size.",
-      image: slpp,
-      tech: ["Python", "Scikit-learn", "Pandas"],
-      github: "https://github.com/kavindacena99/Sri-Lankan-Land-Price-Predictor"
-    },
-  ];
-
+export default function Projects({ content }) {
   return (
-    <AnimatedSection id="projects" className="py-20 bg-gray-900 text-white flex flex-col items-center px-6">
-      <h2 className="text-4xl font-bold mb-8 text-blue-400">Projects</h2>
+    <AnimatedSection id="projects" className="px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
+        />
 
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
-        {projects.map((project, index) => (
-          <div key={index} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition">
-            <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((t, i) => (
+        <div className="grid gap-6 lg:grid-cols-2">
+          {content.items.map((project, index) => (
+            <article
+              key={project.title}
+              className={`overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5 ${
+                index === 0 ? "lg:col-span-2" : ""
+              }`}
+            >
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="inline-flex rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                      {project.category}
+                    </span>
+                    {project.featured ? (
+                      <span className="inline-flex rounded-full border border-[var(--color-border)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-soft)]">
+                        Featured
+                      </span>
+                    ) : null}
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl text-[var(--color-text)] sm:text-3xl">
+                    {project.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  {project.links.github ? (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+                    >
+                      GitHub
+                      <ArrowUpRightIcon className="h-4 w-4" />
+                    </a>
+                  ) : null}
+                  {project.links.demo ? (
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+                    >
+                      Live Demo
+                      <ArrowUpRightIcon className="h-4 w-4" />
+                    </a>
+                  ) : null}
+                </div>
+              </div>
+
+              <p className="mt-5 max-w-3xl text-base leading-7 text-[var(--color-text-muted)]">
+                {project.summary}
+              </p>
+
+              <div className="mt-8 grid gap-6 lg:grid-cols-2">
+                <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-soft)]">
+                    Problem / context
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+                    {project.problem}
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-soft)]">
+                    My implementation focus
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
+                    {project.focus}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {project.stack.map((tech) => (
                   <span
-                    key={i}
-                    className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm"
+                    key={tech}
+                    className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm text-[var(--color-text-muted)]"
                   >
-                    {t}
+                    {tech}
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-white"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
-    </AnimatedSection> );
+    </AnimatedSection>
+  );
 }
-
-export default Projects;
