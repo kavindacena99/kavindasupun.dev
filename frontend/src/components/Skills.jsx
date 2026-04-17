@@ -1,38 +1,48 @@
-import React from "react";
 import AnimatedSection from "./AnimatedSection";
+import SectionHeading from "./SectionHeading";
+import { iconMap } from "./iconMap";
 
-function Skills(){
-    const skills = [
-        { name: "Laravel", icon: "https://cdn.worldvectorlogo.com/logos/laravel-2.svg" },
-        { name: "React", icon: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
-        { name: "ExpressJS", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" },
-        { name: "Node.js", icon: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" },
-        { name: "MongoDB", icon: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" },
-        { name: "Tailwind CSS", icon: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" },
-        { name: "Python", icon: "https://cdn.worldvectorlogo.com/logos/python-5.svg" },
-        { name: "Go", icon: "https://cdn.worldvectorlogo.com/logos/gopher.svg" },
-        { name: "Git", icon: "https://cdn.worldvectorlogo.com/logos/git-icon.svg" },
-        { name: "Bootstrap", icon: "https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" },
-        { name: "Postman", icon: "https://cdn.worldvectorlogo.com/logos/postman.svg" },
-        { name: "MySQL", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" },
-        { name: "NumPy", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" },
-        { name: "Pandas", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" },
-    ];
-
+export default function Skills({ content }) {
   return (
-    <AnimatedSection id="skills" className="py-20 bg-gray-800 text-white flex flex-col items-center px-6">
-      <h2 className="text-4xl font-bold mb-8 text-blue-400">Skills</h2>
+    <AnimatedSection id="skills" className="px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
+        />
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-10 max-w-5xl">
-        {skills.map((skill, index) => (
-          <div key={index} className="flex flex-col items-center bg-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 transition">
-            <img src={skill.icon} alt={skill.name} className="w-16 h-16 mb-4" />
-            <p className="text-lg font-semibold">{skill.name}</p>
-          </div>
-        ))}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {content.groups.map((group) => {
+            const Icon = iconMap[group.icon];
+
+            return (
+              <article
+                key={group.title}
+                className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="rounded-2xl bg-[var(--color-accent-soft)] p-3 text-[var(--color-accent)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-display text-2xl text-[var(--color-text)]">{group.title}</h3>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm text-[var(--color-text-muted)]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </AnimatedSection>
-    );
+  );
 }
-
-export default Skills;

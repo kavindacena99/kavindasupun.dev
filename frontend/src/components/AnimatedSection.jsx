@@ -1,19 +1,16 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { motion as Motion } from "framer-motion";
 
-function AnimatedSection({ children, id, className="" }) {
+export default function AnimatedSection({ children, id, className = "" }) {
   return (
-    <motion.section
+    <Motion.section
       id={id}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`py-20 px-6 ${className}`}
+      className={`scroll-mt-28 ${className}`}
     >
       {children}
-    </motion.section>
+    </Motion.section>
   );
 }
-
-export default AnimatedSection;

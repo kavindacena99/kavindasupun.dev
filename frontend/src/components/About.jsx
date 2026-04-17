@@ -1,34 +1,38 @@
-import React from "react";
 import AnimatedSection from "./AnimatedSection";
-import dp from '../assets/dp.jpg';
+import SectionHeading from "./SectionHeading";
 
-function About(){
-    return(
-        <AnimatedSection id="about" className="py-20 bg-gray-900 text-white flex flex-col items-center px-6">
-            <h2 className="text-4xl font-bold mb-8 text-blue-400">About Me</h2>
+export default function About({ content }) {
+  return (
+    <AnimatedSection id="about" className="px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow={content.eyebrow}
+          title={content.title}
+          description={content.description}
+        />
 
-            <div className="max-w-4xl flex flex-col md:flex-row items-center gap-10">
-                <img
-                src={ dp }
-                alt="Kavinda Supun"
-                className="w-48 h-60 rounded-full border-4 border-blue-400 shadow-lg"
-                />
-
-                <div>
-                    <p className="text-lg leading-relaxed mb-4">
-                        I’m <span className="text-blue-300">Kavinda Supun</span>, a
-                        passionate Full-Stack Developer skilled in
-                        <span className="font-semibold"> Laravel, MERN, React Native and Data Science</span>.
-                        I enjoy building powerful and user-friendly applications that
-                        deliver real-world solutions.
-                    </p>
-                    <p className="text-lg leading-relaxed">
-                        I recently completed my BSc in Applied Mathematics and Computing at Vavuniya Campus of the Unversity of Jaffna and have developed projects ranging from bakery delivery systems to AI-powered solutions. I’m driven by curiosity, constantly exploring new technologies, and dedicated to creating innovative, impactful products.
-                    </p>
-                </div>
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5">
+            <div className="space-y-5 text-base leading-8 text-[var(--color-text-muted)]">
+              {content.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-        </AnimatedSection>
-    );
-}
+          </div>
 
-export default About;
+          <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5">
+            <h3 className="font-display text-2xl text-[var(--color-text)]">How I approach the work</h3>
+            <ul className="mt-6 space-y-4">
+              {content.highlights.map((highlight) => (
+                <li key={highlight} className="flex gap-3 text-sm leading-7 text-[var(--color-text-muted)]">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
