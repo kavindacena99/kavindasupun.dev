@@ -22,6 +22,10 @@ function App() {
       .map((sectionId) => document.getElementById(sectionId))
       .filter(Boolean);
 
+    if (!sections.length || typeof IntersectionObserver === "undefined") {
+      return undefined;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleEntry = entries
