@@ -22,31 +22,50 @@ function App() {
       .map((sectionId) => document.getElementById(sectionId))
       .filter(Boolean);
 
-    if (!sections.length || typeof IntersectionObserver === "undefined") {
+    if (!sections.length || typeof window === "undefined") {
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((entryA, entryB) => entryB.intersectionRatio - entryA.intersectionRatio)[0];
+    let frameId = 0;
+    const sectionOffset = 180;
 
-        if (visibleEntry?.target?.id) {
-          setActiveSection(visibleEntry.target.id);
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + sectionOffset;
+      let nextActiveSection = sectionIds[0];
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= scrollPosition) {
+          nextActiveSection = section.id;
         }
-      },
-      {
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0.2, 0.35, 0.5, 0.75],
-      },
-    );
+      });
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveSection((currentSection) =>
+        currentSection === nextActiveSection ? currentSection : nextActiveSection,
+      );
+    };
+
+    const handleScroll = () => {
+      if (frameId) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = 0;
+        updateActiveSection();
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
-      observer.disconnect();
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateActiveSection);
     };
   }, []);
 
