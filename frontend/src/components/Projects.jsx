@@ -1,8 +1,63 @@
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import AnimatedSection from "./AnimatedSection";
 import SectionHeading from "./SectionHeading";
 import { ArrowUpRightIcon } from "./Icons";
+import Wildcat from "../projects/wildcat";
+
+// Map a project to the architecture component it should open.
+// Add more entries here as you add more architecture write-ups.
+function ArchitectureDoc({ project }) {
+  // Only one doc for now; branch on project.title / project.slug when you add more.
+  return <Wildcat project={project} />;
+}
+
+function ArchitectureModal({ title, onClose, children }) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${title} — architecture`}
+      className="fixed inset-0 z-[100] flex flex-col bg-[var(--color-surface)]"
+    >
+      <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-3">
+        <p className="truncate text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-soft)]">
+          {title} — Architecture
+        </p>
+        <button
+          type="button"
+          onClick={onClose}
+          className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+        >
+          Close
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+      <div className="flex-1 overflow-y-auto">{children}</div>
+    </div>
+  );
+}
 
 export default function Projects({ content }) {
+  const [activeProject, setActiveProject] = useState(null);
+
+  const closeDoc = useCallback(() => setActiveProject(null), []);
+
+  // Lock body scroll and wire Escape-to-close while the overlay is open.
+  useEffect(() => {
+    if (!activeProject) return undefined;
+    const onKey = (event) => {
+      if (event.key === "Escape") closeDoc();
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [activeProject, closeDoc]);
+
   return (
     <AnimatedSection id="projects" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
@@ -60,6 +115,16 @@ export default function Projects({ content }) {
                       <ArrowUpRightIcon className="h-4 w-4" />
                     </a>
                   ) : null}
+                  {project.architecture ? (
+                    <button
+                      type="button"
+                      onClick={() => setActiveProject(project)}
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)] bg-[var(--color-accent-soft)] px-4 py-2 text-sm font-medium text-[var(--color-accent)] transition hover:brightness-95"
+                    >
+                      Architecture
+                      <ArrowUpRightIcon className="h-4 w-4" />
+                    </button>
+                  ) : null}
                 </div>
               </div>
 
@@ -100,6 +165,15 @@ export default function Projects({ content }) {
           ))}
         </div>
       </div>
+
+      {activeProject
+        ? createPortal(
+            <ArchitectureModal title={activeProject.title} onClose={closeDoc}>
+              <ArchitectureDoc project={activeProject} />
+            </ArchitectureModal>,
+            document.body
+          )
+        : null}
     </AnimatedSection>
   );
 }
