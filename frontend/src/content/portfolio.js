@@ -217,6 +217,7 @@ export const portfolioContent = {
           "Worked across Flutter mobile flows, Django backend services, Firebase integrations, notifications, and GPS-aware application behavior.",
         stack: ["Flutter", "Django", "Firebase", "Dart", "Python", "Location workflows"],
         links: {},
+        architecture: true,
       },
       {
         category: "Full-Stack Product System",
