@@ -1,195 +1,104 @@
-import { motion as Motion } from "framer-motion";
-import {
-  ArrowUpRightIcon,
-  GithubIcon,
-  LinkedinIcon,
-  MailIcon,
-  MapPinIcon,
-} from "./Icons";
+import { motion as Motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRightIcon, GithubIcon, LinkedinIcon, MapPinIcon } from "./Icons";
+
+const reveal = (reduceMotion, delay) => ({
+  initial: reduceMotion ? false : { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: reduceMotion ? { duration: 0 } : { duration: 0.55, delay, ease: "easeOut" },
+});
 
 export default function Hero({ profile, contact }) {
+  const reduceMotion = useReducedMotion();
   const githubLink = contact.socialLinks.find((link) => link.label === "GitHub")?.href;
   const linkedInLink = contact.socialLinks.find((link) => link.label === "LinkedIn")?.href;
 
   return (
-    <section id="home" className="scroll-mt-28 px-6 pb-20 pt-32 sm:pb-24 sm:pt-36">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+    <section id="home" className="scroll-mt-28 px-5 pb-20 pt-32 sm:px-6 sm:pb-24 sm:pt-40">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
         <div>
-          <Motion.span
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-text-soft)]"
-          >
-            {profile.role} based in {profile.location}
-          </Motion.span>
+          <Motion.div {...reveal(reduceMotion, 0)} className="flex flex-wrap items-center gap-3">
+            <span className="glass-pill">{profile.roleIndicator}</span>
+            <span className="availability-pill">
+              <span className="availability-dot" aria-hidden="true" />
+              Selected freelance projects
+            </span>
+          </Motion.div>
 
           <Motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 max-w-4xl font-display text-5xl leading-[1.02] tracking-tight text-[var(--color-text)] sm:text-6xl xl:text-7xl"
+            {...reveal(reduceMotion, 0.08)}
+            className="mt-7 max-w-4xl font-display text-[clamp(2.8rem,7vw,5.6rem)] font-semibold leading-[0.98] tracking-[-0.065em] text-[var(--color-text)]"
           >
             {profile.name}
           </Motion.h1>
 
           <Motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 max-w-3xl text-xl font-semibold leading-8 text-[var(--color-accent)]"
+            {...reveal(reduceMotion, 0.16)}
+            className="mt-7 max-w-3xl text-xl font-medium leading-8 tracking-[-0.02em] text-[var(--color-accent-strong)] sm:text-2xl sm:leading-9"
           >
             {profile.headline}
           </Motion.p>
 
           <Motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-muted)] sm:text-lg"
+            {...reveal(reduceMotion, 0.24)}
+            className="mt-5 max-w-2xl text-base leading-8 text-[var(--color-text-muted)] sm:text-lg"
           >
             {profile.summary}
           </Motion.p>
 
-          <Motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-4 max-w-2xl text-sm uppercase tracking-[0.24em] text-[var(--color-text-soft)]"
-          >
-            {profile.heroIntro}
+          <Motion.p {...reveal(reduceMotion, 0.3)} className="mt-5 text-sm font-medium text-[var(--color-text-soft)]">
+            {profile.availability}
           </Motion.p>
 
-          <Motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            {profile.focusTags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm text-[var(--color-text-muted)]"
-              >
-                {tag}
-              </span>
-            ))}
-          </Motion.div>
-
-          <Motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-strong)]"
-            >
+          <Motion.div {...reveal(reduceMotion, 0.36)} className="mt-9 flex flex-wrap gap-3">
+            <a href="#projects" className="button-primary">
               View Projects
               <ArrowUpRightIcon className="h-4 w-4" />
             </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-            >
-              Contact Me
+            <a href={`mailto:${contact.email}?subject=Project%20discussion`} className="glass-button">
+              Discuss a Project
             </a>
-            {profile.resume.href ? (
-              <a
-                href={profile.resume.href}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-              >
-                {profile.resume.label}
+          </Motion.div>
+
+          <Motion.div {...reveal(reduceMotion, 0.42)} className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+            {githubLink ? (
+              <a href={githubLink} target="_blank" rel="noreferrer" className="text-link">
+                <GithubIcon className="h-4 w-4" /> GitHub
+              </a>
+            ) : null}
+            {linkedInLink ? (
+              <a href={linkedInLink} target="_blank" rel="noreferrer" className="text-link">
+                <LinkedinIcon className="h-4 w-4" /> LinkedIn
               </a>
             ) : null}
           </Motion.div>
-
-          {!profile.resume.href ? (
-            <Motion.p
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-5 text-sm text-[var(--color-text-soft)]"
-            >
-              Resume is available on request.
-            </Motion.p>
-          ) : null}
         </div>
 
-        <Motion.aside
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-xl shadow-black/5"
-        >
-          <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-[var(--color-accent-soft)] blur-3xl" />
+        <Motion.aside {...reveal(reduceMotion, 0.18)} className="hero-portrait-card">
+          <div className="portrait-frame">
+            <img
+              src={profile.portrait}
+              alt={`Portrait of ${profile.name}`}
+              width="720"
+              height="960"
+              fetchPriority="high"
+              className="h-full w-full object-cover object-[center_24%]"
+            />
+          </div>
 
-          <div className="relative">
-            <div className="flex items-center gap-4">
-              <img
-                src={profile.portrait}
-                alt={profile.name}
-                className="h-20 w-20 rounded-3xl object-cover ring-1 ring-[var(--color-border)]"
-              />
-              <div>
-                <p className="font-display text-2xl text-[var(--color-text)]">{profile.name}</p>
-                <p className="mt-1 text-sm text-[var(--color-text-muted)]">{profile.role}</p>
-              </div>
+          <div className="relative mt-5">
+            <p className="font-display text-xl font-semibold text-[var(--color-text)]">{profile.positioning}</p>
+            <div className="mt-3 flex items-center gap-2 text-sm text-[var(--color-text-muted)]">
+              <MapPinIcon className="h-4 w-4 text-[var(--color-accent)]" />
+              Based in {profile.location}
             </div>
-
-            <div className="mt-8 space-y-4">
+            <dl className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {profile.quickFacts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-soft)]">
-                    {fact.label}
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">{fact.value}</p>
+                <div key={fact.label} className="fact-row">
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={`mailto:${contact.email}`}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-              >
-                <MailIcon className="h-4 w-4" />
-                Email
-              </a>
-
-              {githubLink ? (
-                <a
-                  href={githubLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-                >
-                  <GithubIcon className="h-4 w-4" />
-                  GitHub
-                </a>
-              ) : null}
-
-              {linkedInLink ? (
-                <a
-                  href={linkedInLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 text-sm text-[var(--color-text)] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-                >
-                  <LinkedinIcon className="h-4 w-4" />
-                  LinkedIn
-                </a>
-              ) : null}
-            </div>
-
-            <div className="mt-8 flex items-center gap-3 rounded-3xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-4 text-sm text-[var(--color-text-muted)]">
-              <MapPinIcon className="h-4 w-4 text-[var(--color-accent)]" />
-              <span>Based in {profile.location}</span>
-            </div>
+            </dl>
           </div>
         </Motion.aside>
       </div>

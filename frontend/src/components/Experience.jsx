@@ -4,7 +4,7 @@ import { BriefcaseIcon } from "./Icons";
 
 export default function Experience({ content }) {
   return (
-    <AnimatedSection id="experience" className="px-6 py-20">
+    <AnimatedSection id="experience" className="section-shell">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow={content.eyebrow}
@@ -16,16 +16,16 @@ export default function Experience({ content }) {
           {content.roles.map((role) => (
             <article
               key={role.title}
-              className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5"
+              className="glass-card p-7 sm:p-8"
             >
               <div className="mb-5 flex items-start justify-between gap-4">
                 <div>
-                  <span className="inline-flex items-center rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+                  <span className="project-label">
                     {role.phase}
                   </span>
-                  <h3 className="mt-4 font-display text-2xl text-[var(--color-text)]">{role.title}</h3>
+                  <h3 className="mt-4 font-display text-2xl font-semibold text-[var(--color-text)]">{role.title}</h3>
                 </div>
-                <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-secondary)] p-3 text-[var(--color-accent)]">
+                <div className="glass-icon">
                   <BriefcaseIcon className="h-5 w-5" />
                 </div>
               </div>

@@ -6,9 +6,11 @@ import {
   GithubIcon,
   GraduationIcon,
   LinkedinIcon,
+  MobileIcon,
   ServerIcon,
   SparkIcon,
   ToolsIcon,
+  WorkflowIcon,
 } from "./Icons";
 
 export const iconMap = {
@@ -22,4 +24,6 @@ export const iconMap = {
   linkedin: LinkedinIcon,
   briefcase: BriefcaseIcon,
   graduation: GraduationIcon,
+  mobile: MobileIcon,
+  workflow: WorkflowIcon,
 };

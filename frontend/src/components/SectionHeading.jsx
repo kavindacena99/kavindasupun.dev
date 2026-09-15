@@ -1,19 +1,19 @@
 export default function SectionHeading({ eyebrow, title, description, align = "left" }) {
   const wrapperClass =
     align === "center"
-      ? "mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center"
-      : "mb-12 flex max-w-3xl flex-col gap-4";
+      ? "mx-auto mb-12 flex max-w-3xl flex-col items-center gap-4 text-center sm:mb-14"
+      : "mb-12 flex max-w-3xl flex-col gap-4 sm:mb-14";
 
   return (
     <div className={wrapperClass}>
       {eyebrow ? (
-        <span className="inline-flex w-fit items-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-text-soft)]">
+        <span className="section-kicker">
           {eyebrow}
         </span>
       ) : null}
 
       <div className="space-y-3">
-        <h2 className="font-display text-3xl tracking-tight text-[var(--color-text)] sm:text-4xl">
+        <h2 className="font-display text-3xl font-semibold tracking-[-0.035em] text-[var(--color-text)] sm:text-4xl lg:text-[2.7rem] lg:leading-tight">
           {title}
         </h2>
         {description ? (

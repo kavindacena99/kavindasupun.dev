@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import CurrentFocus from "./components/CurrentFocus";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
+import Services from "./components/Services";
 import Skills from "./components/Skills";
 import { portfolioContent } from "./content/portfolio";
 import useTheme from "./hooks/useTheme";
@@ -31,7 +31,7 @@ function App() {
 
     const updateActiveSection = () => {
       const scrollPosition = window.scrollY + sectionOffset;
-      let nextActiveSection = sectionIds[0];
+      let nextActiveSection = null;
 
       sections.forEach((section) => {
         if (section.offsetTop <= scrollPosition) {
@@ -71,13 +71,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300">
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-accent-soft),transparent_28%),radial-gradient(circle_at_bottom_right,var(--color-accent-alt),transparent_24%),var(--color-bg)]" />
-        <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(var(--color-grid)_1px,transparent_1px),linear-gradient(90deg,var(--color-grid)_1px,transparent_1px)] [background-size:48px_48px]" />
-      </div>
+      <div className="site-ambient" aria-hidden="true" />
 
       <Navbar
-        brand={portfolioContent.profile.name}
+        brand={portfolioContent.profile.shortName}
         navItems={portfolioContent.navigation}
         activeSection={activeSection}
         isDark={isDark}
@@ -86,20 +83,21 @@ function App() {
 
       <main>
         <Hero profile={portfolioContent.profile} contact={portfolioContent.contact} />
-        <CurrentFocus content={portfolioContent.currentFocus} />
         <About content={portfolioContent.profile.about} />
-        <Experience content={portfolioContent.experience} />
-        <Education content={portfolioContent.education} />
-        <Skills content={portfolioContent.skillGroups} />
+        <Services content={portfolioContent.services} />
         <Projects content={portfolioContent.projects} />
+        <Experience content={portfolioContent.experience} />
+        <Skills content={portfolioContent.skillGroups} />
+        <Education content={portfolioContent.education} />
         <Contact content={portfolioContent.contact} />
       </main>
 
       <Footer
         name={portfolioContent.profile.name}
-        role={portfolioContent.profile.role}
+        role={portfolioContent.profile.positioning}
         navItems={portfolioContent.navigation}
         socialLinks={portfolioContent.contact.socialLinks}
+        email={portfolioContent.contact.email}
       />
     </div>
   );

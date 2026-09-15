@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const STORAGE_KEY = "portfolio-theme";
 
@@ -34,9 +34,12 @@ function getInitialTheme() {
 export default function useTheme() {
   const [theme, setTheme] = useState(getInitialTheme);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "dark" ? "#101211" : "#F6F6F3");
 
     try {
       window.localStorage.setItem(STORAGE_KEY, theme);

@@ -1,286 +1,156 @@
 import portrait from "../assets/dp.jpg";
 
 export const portfolioContent = {
-  seo: {
-    title: "Kavinda Supun | Associate AI Engineer",
-    description:
-      "Associate AI Engineer in Sri Lanka building agentic AI systems, RAG workflows, backend APIs, mobile products, and deployment-ready software.",
-  },
   navigation: [
-    { label: "Home", href: "#home", sectionId: "home" },
     { label: "About", href: "#about", sectionId: "about" },
-    { label: "Experience", href: "#experience", sectionId: "experience" },
-    { label: "Education", href: "#education", sectionId: "education" },
-    { label: "Skills", href: "#skills", sectionId: "skills" },
+    { label: "Services", href: "#services", sectionId: "services" },
     { label: "Projects", href: "#projects", sectionId: "projects" },
+    { label: "Experience", href: "#experience", sectionId: "experience" },
+    { label: "Skills", href: "#skills", sectionId: "skills" },
+    { label: "Education", href: "#education", sectionId: "education" },
     { label: "Contact", href: "#contact", sectionId: "contact" },
   ],
   profile: {
-    name: "Kavinda Supun",
-    role: "Associate AI Engineer",
-    headline:
-      "Associate AI Engineer | MSc Computer Science Student | Full-Stack Developer",
-    location: "Sri Lanka",
+    name: "Kavinda Supun Dissanayake",
+    shortName: "Kavinda Supun",
+    positioning: "Software Engineer & AI Engineer",
+    roleIndicator: "Software Engineer • AI Engineer",
+    headline: "Building practical software and intelligent systems for real-world problems.",
     summary:
-      "I build practical AI and software systems with a focus on agentic workflows, retrieval-augmented generation, backend APIs, mobile apps, and deployment-ready engineering.",
-    heroIntro:
-      "Engineering AI-assisted products and real-world software across backend, mobile, and cloud-facing delivery.",
+      "I design and build backend systems, web and mobile applications, AI agents, RAG-powered solutions, and business software with a focus on usability, accuracy, security, and maintainability.",
+    availability: "Available for selected freelance software and AI solution projects.",
+    location: "Sri Lanka",
     portrait,
-    focusTags: [
-      "Agentic AI",
-      "RAG pipelines",
-      "Django + DRF",
-      "Flutter",
-      "MERN stack",
-      "Cloud / DevOps",
-    ],
     quickFacts: [
       { label: "Current role", value: "Associate AI Engineer" },
-      {
-        label: "Current study",
-        value: "MSc in Computer Science, University of Kelaniya",
-      },
-      {
-        label: "Engineering lens",
-        value: "AI systems, backend architecture, mobile delivery, deployment",
-      },
+      { label: "Current study", value: "MSc in Computer Science" },
+      { label: "Based in", value: "Sri Lanka" },
     ],
     about: {
-      eyebrow: "Professional Profile",
-      title: "An AI-focused engineer who ships practical systems.",
+      eyebrow: "About",
+      title: "Engineering around the problem that needs to be solved.",
       description:
-        "I combine an AI engineering focus with a software engineering foundation across backend development, mobile products, and production-minded delivery.",
+        "I am a Software and AI Engineer from Sri Lanka with experience across backend systems, web and mobile applications, business software, and applied AI engineering.",
       paragraphs: [
-        "I am currently working as an Associate AI Engineer while continuing my MSc in Computer Science at the University of Kelaniya. My work is centered on building usable AI systems rather than isolated demos, with particular attention to agentic workflows, retrieval quality, backend reliability, and grounded outputs.",
-        "Alongside AI-focused work, I have experience delivering full-stack and mobile systems across Django, DRF, Flutter, and MERN-based products. I enjoy building software that solves operational problems, supports real workflows, and stays maintainable as the system grows.",
+        "My work increasingly focuses on agentic AI, retrieval-augmented generation, backend architecture, and intelligent workflows. I enjoy connecting these capabilities to dependable APIs and usable product experiences rather than treating AI as an isolated feature.",
+        "I approach each project by understanding the people, workflow, and operational constraints first. The technology should earn its place by creating practical value, whether the right solution is conventional software, AI-assisted automation, or a combination of both.",
       ],
-      highlights: [
-        "Build AI features with retrieval, orchestration, and backend integration in mind",
-        "Comfortable across API design, business logic, mobile flows, and deployment work",
-        "Based in Sri Lanka and interested in practical, product-oriented engineering",
-      ],
-    },
-    resume: {
-      href: "",
-      label: "Download Resume",
-      note: "TODO: Add a public resume or CV file when it is ready to publish.",
+      values: ["Maintainability", "Usability", "Accuracy", "Security", "Practical value"],
+      philosophy:
+        "I do not add AI simply because it is available. I use software and AI where they create clear value for the people and process involved.",
     },
   },
-  currentFocus: {
-    eyebrow: "Current Focus",
-    title: "What I am working on now",
+  services: {
+    eyebrow: "Engineering Solutions",
+    title: "Software and AI solutions shaped around real work",
     description:
-      "The portfolio is positioned around real engineering work, not generic claims. These are the areas I am actively deepening.",
+      "I work with individuals and organizations to understand a problem, define the right system, and build a maintainable solution that fits the way people actually operate.",
+    items: [
+      { icon: "server", title: "Business Systems", description: "Custom internal platforms, management tools, dashboards, and workflow systems designed around real business processes." },
+      { icon: "device", title: "Web Applications", description: "Responsive applications with maintainable frontend and backend architecture, clear workflows, and practical user experiences." },
+      { icon: "spark", title: "AI Solutions", description: "RAG-powered assistants, intelligent knowledge systems, agentic workflows, and LLM integrations designed around specific use cases." },
+      { icon: "database", title: "Backend & API Engineering", description: "Structured APIs, authentication, business logic, integrations, and database-backed services built for dependable operation." },
+      { icon: "mobile", title: "Mobile Applications", description: "Cross-platform Flutter applications connected to APIs, maps, notifications, device capabilities, and external services." },
+      { icon: "workflow", title: "Workflow Automation", description: "Software and AI-assisted workflows that reduce repetitive work, connect information, and simplify operational processes." },
+    ],
+    principles: {
+      eyebrow: "How I Engineer",
+      title: "Three priorities carried through the system",
+      description: "Good engineering balances the experience people see with the logic, data, and safeguards underneath it.",
+      items: [
+        { number: "01", title: "Better Usability", description: "Build around the people who use the software: intuitive workflows, accessible interactions, responsive layouts, clear information hierarchy, and fewer unnecessary steps.", details: ["User-centered workflows", "Accessible interaction", "Mobile-friendly experiences"] },
+        { number: "02", title: "Accuracy-Focused Engineering", description: "Design business logic and AI behavior for dependable results through validation, consistent rules, structured APIs, error handling, grounded retrieval, and evaluation-minded development.", details: ["Validated data flows", "Grounded AI responses", "Consistent business rules"] },
+        { number: "03", title: "Security by Design", description: "Apply strong security practices from the start with authentication, authorization, server-side validation, safe secret handling, least-privilege thinking, and OWASP-conscious API design.", details: ["Role-based access", "Secure API practices", "Thoughtful input validation"] },
+      ],
+    },
+  },
+  projects: {
+    eyebrow: "Selected Work",
+    title: "Systems that demonstrate practical engineering",
+    description: "Three focused projects across mobile and backend integration, business operations, and applied AI retrieval.",
     items: [
       {
-        icon: "spark",
-        title: "Agentic AI systems",
-        description:
-          "Designing workflows that combine prompting, retrieval, tools, and controlled execution paths for practical product use.",
+        featured: true,
+        category: "Mobile + Backend",
+        status: "Research Project",
+        title: "Location-Based Human–Leopard Conflict Alert System",
+        summary: "A location-aware field application developed for geography-related research into human–wildlife conflict.",
+        problem: "Field users need a reliable way to record leopard sightings or conflict incidents and quickly alert the people close enough to respond.",
+        solution: "Authorized users submit GPS coordinates, location details, photographs, and descriptions through Flutter. Django processes the report, applies geographic distance filtering, and sends real-time alerts to nearby devices through Firebase Cloud Messaging.",
+        contribution: "Worked across the Flutter experience, Django REST services, JWT token flows, geolocation and permissions, image handling, nearby-user calculation, maps, notification delivery, and environment-based configuration.",
+        engineeringHighlights: ["Haversine distance filtering", "FCM device token management", "GPS, maps & permissions", "JWT-protected REST APIs"],
+        stack: ["Flutter", "Dart", "Django", "Django REST Framework", "MySQL", "Google Maps", "Firebase FCM", "JWT"],
+        links: {},
+        architecture: true,
       },
       {
-        icon: "database",
-        title: "RAG pipelines",
-        description:
-          "Improving note ingestion, retrieval quality, grounded answer generation, and evaluation-oriented system design.",
+        featured: true,
+        category: "Full-Stack Business System",
+        status: "In Development",
+        privacy: "Private Project",
+        title: "Loan Management & Operations System",
+        summary: "A full-stack operations platform structured around real loan-management workflows rather than a basic CRUD interface.",
+        problem: "Loan operations require controlled access, reliable state handling, installment tracking, and clear operational visibility across different responsibilities.",
+        solution: "A MERN-based system that brings role-aware workflows, customer and loan operations, installment handling, and ledger-style business logic into one maintainable platform.",
+        contribution: "Focused on backend-driven workflow rules, role-based access, validation, operational state transitions, API design, and the web interfaces that make those processes understandable.",
+        engineeringHighlights: ["Role-based workflows", "Installment tracking", "Backend business rules", "Operational state handling"],
+        stack: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "REST APIs", "JWT"],
+        links: {},
       },
       {
-        icon: "server",
-        title: "Backend engineering",
-        description:
-          "Building Django and DRF APIs, business logic, integration layers, and service structures that support reliable delivery.",
-      },
-      {
-        icon: "cloud",
-        title: "Deployment-minded delivery",
-        description:
-          "Connecting application code with Docker, NGINX, CI/CD, Azure, and the operational work needed to ship usable systems.",
+        category: "AI / RAG",
+        status: "Applied AI Project",
+        title: "AI Study Notes RAG Assistant",
+        summary: "A retrieval-grounded study assistant that turns uploaded study material into relevant context for question answering and revision support.",
+        problem: "General model responses can miss the specific context contained in a learner’s notes, making answers less relevant and harder to trust for study use.",
+        solution: "The backend prepares note content for vector retrieval, selects relevant context from ChromaDB, and supplies that context to Gemini so responses are grounded in the available study material.",
+        contribution: "Worked on the Django and DRF service structure, note ingestion and retrieval flow, ChromaDB integration, model orchestration, and a backend-first approach to answer grounding.",
+        engineeringHighlights: ["Vector-based retrieval", "Grounded model context", "Django API integration", "RAG pipeline design"],
+        stack: ["Python", "Django", "Django REST Framework", "ChromaDB", "Gemini", "RAG"],
+        links: {},
       },
     ],
   },
   experience: {
     eyebrow: "Experience",
-    title: "Professional direction and engineering background",
-    description:
-      "Specific employer names and timelines are intentionally left out until they are ready to publish. The section still reflects the current scope of work truthfully.",
+    title: "Professional engineering direction",
+    description: "Current work combines applied AI engineering with a broader software engineering foundation.",
     roles: [
-      {
-        phase: "Current role",
-        title: "Associate AI Engineer",
-        summary:
-          "Working on AI-driven application features and backend systems with a focus on retrieval-augmented generation, orchestration logic, grounded outputs, and production-minded implementation.",
-        highlights: [
-          "Designing agentic AI flows that connect models, retrieval, and application logic",
-          "Building APIs and backend services that support AI features within larger systems",
-          "Thinking in terms of evaluation, maintainability, and deployment readiness instead of prompt-only prototypes",
-        ],
-      },
-      {
-        phase: "Engineering background",
-        title: "Software Engineer / Full-Stack Developer",
-        summary:
-          "Delivered software across web and mobile products, including internal workflow systems, multi-role applications, backend-heavy implementations, and business logic driven platforms.",
-        highlights: [
-          "Hands-on experience across Django, MERN, Flutter, and relational / document-oriented data layers",
-          "Built systems involving role-based access, workflow orchestration, notifications, and operational business rules",
-          "Comfortable moving between frontend, backend, database, and deployment concerns when a product needs end-to-end ownership",
-        ],
-      },
+      { phase: "Current role", title: "Associate AI Engineer", summary: "Working on AI-driven application features and backend systems, with attention to agentic workflows, retrieval-augmented generation, grounded outputs, maintainability, and deployment readiness.", highlights: ["Connect models, retrieval, tools, and application logic through structured workflows", "Build backend services and APIs that support AI capabilities inside larger systems", "Approach AI features with evaluation, data integrity, security, and production use in mind"] },
+      { phase: "Engineering background", title: "Software Engineer / Full-Stack Developer", summary: "Experience delivering backend-heavy web and mobile systems with multi-role workflows, integrations, and operational business logic.", highlights: ["Work across Django, MERN, Flutter, and relational and document-oriented data layers", "Build role-based access, workflow orchestration, notifications, and business rules", "Move between frontend, backend, database, integration, and deployment concerns when needed"] },
+    ],
+  },
+  skillGroups: {
+    eyebrow: "Capabilities",
+    title: "Technical skills organized by engineering domain",
+    description: "A practical stack spanning AI architecture, backend systems, product interfaces, data, and delivery.",
+    groups: [
+      { icon: "spark", title: "AI / Agentic Systems", items: ["Agentic AI", "LangChain", "LangGraph", "RAG", "Agentic RAG", "Vector databases", "ChromaDB", "LLM APIs", "Gemini", "Prompt design", "AI workflow orchestration", "Contextual memory concepts"] },
+      { icon: "server", title: "Backend Engineering", items: ["Python", "Django", "Django REST Framework", "Node.js", "Express.js", "REST API design", "Authentication", "Authorization / RBAC", "Business logic"] },
+      { icon: "device", title: "Frontend / Mobile", items: ["React", "JavaScript", "Tailwind CSS", "Flutter", "Dart", "Responsive UI"] },
+      { icon: "database", title: "Data", items: ["MySQL", "MongoDB", "ChromaDB", "Firebase", "Database design"] },
+      { icon: "cloud", title: "Cloud / DevOps", items: ["Azure", "Docker", "NGINX", "CI/CD", "Environment configuration", "Deployment workflows"] },
+      { icon: "tools", title: "Engineering Tools", items: ["Git", "GitHub", "Postman", "System integration", "API testing"] },
     ],
   },
   education: {
     eyebrow: "Education",
-    title: "Academic foundation aligned with current engineering work",
-    description:
-      "The academic track supports both applied software engineering and AI-focused work.",
+    title: "Academic foundation",
+    description: "Formal study supporting both software engineering and applied AI work.",
     items: [
-      {
-        status: "Current study",
-        degree: "Master of Science in Computer Science",
-        institution: "University of Kelaniya",
-        note: "Continuing advanced study alongside practical AI engineering work.",
-      },
-      {
-        status: "Completed degree",
-        degree: "BSc in Applied Mathematics and Computing",
-        institution: "University of Jaffna",
-        note: "Built the analytical and computing foundation behind current software and AI work.",
-      },
-    ],
-  },
-  skillGroups: {
-    eyebrow: "Skills",
-    title: "Core technologies grouped by how I use them",
-    description:
-      "The stack is organized around real delivery work instead of a flat list of tools.",
-    groups: [
-      {
-        icon: "spark",
-        title: "AI / ML",
-        items: ["LangChain", "LangGraph", "ChromaDB", "RAG workflows", "Python"],
-      },
-      {
-        icon: "server",
-        title: "Backend",
-        items: ["Django", "Django REST Framework", "Node.js", "Express", "REST APIs"],
-      },
-      {
-        icon: "device",
-        title: "Frontend / Mobile",
-        items: ["React", "Flutter", "Dart", "Tailwind CSS", "MERN applications"],
-      },
-      {
-        icon: "database",
-        title: "Databases",
-        items: ["MongoDB", "MySQL", "ChromaDB", "Firebase"],
-      },
-      {
-        icon: "cloud",
-        title: "DevOps / Cloud",
-        items: ["Docker", "NGINX", "Azure", "CI/CD", "Deployment workflows"],
-      },
-      {
-        icon: "tools",
-        title: "Tools",
-        items: ["Git", "GitHub", "Gemini", "Postman", "System integration"],
-      },
-    ],
-  },
-  projects: {
-    eyebrow: "Featured Projects",
-    title: "Projects that show how I build across AI, backend, and product workflows",
-    description:
-      "These projects are framed around problem-solving, implementation focus, and system thinking instead of just listing technologies.",
-    items: [
-      {
-        featured: true,
-        category: "AI / RAG",
-        title: "AI Study Notes RAG Assistant",
-        summary:
-          "A retrieval-grounded study assistant designed to turn notes into usable context for question answering and revision support.",
-        problem:
-          "The system addresses the gap between static study material and trustworthy answers by focusing on ingestion, retrieval, grounded response generation, and evaluation-aware thinking.",
-        focus:
-          "Built around Django + DRF services, ChromaDB-backed retrieval, Gemini-based answer generation, and a backend-first approach to controlling quality and grounding.",
-        stack: ["Django", "Django REST Framework", "ChromaDB", "Gemini", "Python", "RAG"],
-        links: {},
-      },
-      {
-        featured: true,
-        category: "Mobile + Backend",
-        title: "Dewmal / Wildlife Alert System",
-        summary:
-          "A wildlife alert platform for reporting sightings, sharing location-aware alerts, and supporting notification-driven community response.",
-        problem:
-          "The project focuses on operational awareness in wildlife-related situations by combining location context, real-time reporting, and cross-platform coordination.",
-        focus:
-          "Worked across Flutter mobile flows, Django backend services, Firebase integrations, notifications, and GPS-aware application behavior.",
-        stack: ["Flutter", "Django", "Firebase", "Dart", "Python", "Location workflows"],
-        links: {},
-        architecture: true,
-      },
-      {
-        category: "Full-Stack Product System",
-        title: "DoughGo Bakery Delivery System",
-        summary:
-          "A multi-role delivery and order management system connecting bakery operations, drivers, and customers through web and mobile experiences.",
-        problem:
-          "The system organizes orders, delivery coordination, and role-specific workflows in a product that needs both operational clarity and user-facing usability.",
-        focus:
-          "Built around MERN architecture with mobile and web surfaces, role-based behavior, and flow coordination across different actors in the system.",
-        stack: ["React", "React Native", "Node.js", "Express", "MongoDB", "JWT"],
-        links: {
-          github: "https://github.com/kavindacena99/DoughGo",
-        },
-      },
-      {
-        category: "Business Workflow System",
-        title: "Loan Management System",
-        summary:
-          "An internal workflow-oriented system for handling loan operations, role-based processes, installments, and ledger-style business logic.",
-        problem:
-          "The core challenge is translating financial workflow rules into a maintainable system with controlled access, state handling, and operational visibility.",
-        focus:
-          "Built as a MERN-based application emphasizing business logic, workflow handling, installment tracking, and backend-driven process reliability.",
-        stack: ["MongoDB", "Express", "React", "Node.js", "Role workflows", "Business logic"],
-        links: {},
-      },
-      {
-        category: "Machine Learning",
-        title: "Land Price Prediction",
-        summary:
-          "A machine learning project for predicting Sri Lankan land prices using structured property-related inputs.",
-        problem:
-          "The project explores how prediction models can support decision-making when location and property characteristics strongly affect pricing.",
-        focus:
-          "Worked on data preparation, model building, and practical framing of the prediction task using a Sri Lankan context.",
-        stack: ["Python", "Scikit-learn", "Pandas", "Machine Learning"],
-        links: {
-          github: "https://github.com/kavindacena99/Sri-Lankan-Land-Price-Predictor",
-        },
-      },
+      { status: "Current study", degree: "Master of Science in Computer Science", institution: "University of Kelaniya", note: "Continuing advanced study alongside practical AI engineering work." },
+      { status: "Completed degree", degree: "BSc in Applied Mathematics and Computing", institution: "University of Jaffna", note: "Established the analytical and computing foundation behind current software and AI work." },
     ],
   },
   contact: {
-    eyebrow: "Contact",
-    title: "Open to thoughtful engineering conversations and collaboration",
-    description:
-      "If you are building something around AI systems, backend platforms, or product-focused software delivery, feel free to reach out.",
+    eyebrow: "Start a Conversation",
+    title: "Have a workflow that software or AI could make easier?",
+    description: "I’m open to selected freelance projects involving web applications, business systems, backend development, mobile solutions, and AI-powered workflows. If you have a repetitive process, a difficult system to manage, or an idea ready to become a digital product, let’s discuss the right technical solution.",
     email: "kavindach4@gmail.com",
     location: "Sri Lanka",
-    availability:
-      "Interested in AI engineering, backend, mobile, and product-oriented collaboration.",
     socialLinks: [
-      {
-        label: "GitHub",
-        href: "https://github.com/kavindacena99",
-        icon: "github",
-      },
-      {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com/in/kavindasupundissanayake99/",
-        icon: "linkedin",
-      },
+      { label: "GitHub", href: "https://github.com/kavindacena99", icon: "github" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/kavindasupundissanayake99/", icon: "linkedin" },
     ],
   },
 };

@@ -1,15 +1,15 @@
-# Kavinda Supun Portfolio
+# Portfolio Frontend
 
-Single-page React + Vite + Tailwind portfolio for Kavinda Supun.
+React, Vite, Tailwind CSS, and Framer Motion frontend for the Kavinda Supun Dissanayake portfolio.
 
-## Structure
-
-- `src/content/portfolio.js`: centralized content and profile data
-- `src/components/`: section components and shared UI primitives
-- `src/hooks/useTheme.js`: persisted light/dark theme handling
+See the [repository README](../README.md) for architecture, content editing, accessibility, and deployment guidance.
 
 ## Commands
 
-- `npm run dev`
-- `npm run build`
-- `npm run lint`
+```bash
+npm install
+npm run dev
+npm run lint
+npm run build
+npm run preview
+```

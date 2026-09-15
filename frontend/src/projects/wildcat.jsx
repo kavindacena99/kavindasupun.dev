@@ -1,7 +1,7 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 
 /*
- * Leopard Sightings — Service Architecture & Codebase Integration
+ * Human–Leopard Conflict Alert System — Service Architecture & Codebase Integration
  * Self-contained React component. No external UI libraries required.
  * All 9 diagrams are crisp inline SVG; fonts load from Google Fonts via @import.
  * Styles are scoped under ".leopard-doc" so they won't affect the rest of your app.
@@ -12,7 +12,7 @@ import React from "react";
  */
 
 const STYLES = `@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
-:root{--paper:#FAF7F1;--surface:#FFF;--ink:#1E2620;--muted:#5C665E;--line:#E4DED2;
+.leopard-doc{--paper:#FAF7F1;--surface:#FFF;--ink:#1E2620;--muted:#5C665E;--line:#E4DED2;
 --forest:#1C3A2B;--forest-2:#24503A;--gold:#B67A16;--gold-soft:#F3E4C6}
 .leopard-doc *{box-sizing:border-box}
 .leopard-doc{scroll-behavior:smooth}
@@ -69,7 +69,7 @@ const STYLES = `@import url('https://fonts.googleapis.com/css2?family=Spectral:w
 
 const CONTENT = `<header class="masthead"><div class="masthead-inner">
 <p class="eyebrow">Service Architecture · Codebase Integration</p>
-<h1>Leopard Sightings</h1>
+<h1>Human–Leopard Conflict Alert System</h1>
 <p class="lede">How the external services — Google Maps Platform and Firebase Cloud Messaging — connect to the codebase (Flutter + Django + MySQL) and how data flows through the system.</p>
 <div class="stack-row"><span class="chip">Flutter</span><span class="chip">Django REST</span><span class="chip">MySQL</span><span class="chip">Google Maps</span><span class="chip">Firebase FCM</span><span class="chip">JWT</span><span class="chip">Haversine</span></div>
 </div></header>
@@ -178,11 +178,22 @@ const CONTENT = `<header class="masthead"><div class="masthead-inner">
 <p>Officers report leopard sightings through the <b>Flutter</b> app → <b>Django</b> saves the report to <b>MySQL</b>, finds nearby officers with the <b>Haversine formula</b>, and pushes instant alerts via <b>Firebase Cloud Messaging</b>, while <b>Google Maps</b> visualizes sightings, danger zones, and navigation for rapid field response.</p></div>
 
 </main>
-<footer>Leopard Sightings — Service Architecture &amp; Codebase Integration · diagrams rebuilt as crisp inline SVG (no external rendering).</footer>`;
+<footer>Human–Leopard Conflict Alert System — Service Architecture &amp; Codebase Integration · diagrams rebuilt as crisp inline SVG (no external rendering).</footer>`;
 
 export default function LeopardArchitecture() {
+  const documentRef = useRef(null);
+
+  useEffect(() => {
+    const diagrams = documentRef.current?.querySelectorAll(".diagram svg[role='img']") ?? [];
+    diagrams.forEach((diagram, index) => {
+      const caption = diagram.closest(".diagram")?.querySelector(".dcap")?.textContent?.trim();
+      diagram.setAttribute("aria-label", caption || `System architecture diagram ${index + 1}`);
+      diagram.setAttribute("focusable", "false");
+    });
+  }, []);
+
   return (
-    <div className="leopard-doc">
+    <div ref={documentRef} className="leopard-doc">
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
       <div dangerouslySetInnerHTML={{ __html: CONTENT }} />
     </div>

@@ -3,7 +3,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function About({ content }) {
   return (
-    <AnimatedSection id="about" className="px-6 py-20">
+    <AnimatedSection id="about" className="section-shell">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow={content.eyebrow}
@@ -11,25 +11,30 @@ export default function About({ content }) {
           description={content.description}
         />
 
-        <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5">
-            <div className="space-y-5 text-base leading-8 text-[var(--color-text-muted)]">
+        <div className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+          <div className="glass-card p-7 sm:p-9">
+            <div className="space-y-5 text-base leading-8 text-[var(--color-text-muted)] sm:text-lg">
               {content.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-7 shadow-lg shadow-black/5">
-            <h3 className="font-display text-2xl text-[var(--color-text)]">How I approach the work</h3>
-            <ul className="mt-6 space-y-4">
-              {content.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-3 text-sm leading-7 text-[var(--color-text-muted)]">
-                  <span className="mt-2 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
-                  <span>{highlight}</span>
-                </li>
+          <div className="quiet-panel p-7 sm:p-9">
+            <p className="section-kicker">What guides the work</p>
+            <h3 className="mt-4 font-display text-2xl font-semibold text-[var(--color-text)]">
+              Useful technology, applied with care.
+            </h3>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {content.values.map((value) => (
+                <span key={value} className="glass-pill">
+                  {value}
+                </span>
               ))}
-            </ul>
+            </div>
+            <p className="mt-7 text-sm leading-7 text-[var(--color-text-muted)]">
+              {content.philosophy}
+            </p>
           </div>
         </div>
       </div>
